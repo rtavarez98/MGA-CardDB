@@ -10,7 +10,7 @@ async function createCard(req, res) { //test
     }
 }
 
-async function getAllCard(req, res) {//test
+async function getAllCard(req, res) {
     try{
         let cardCollect = await cards.find({});
         return res.send(cardCollect);
@@ -19,7 +19,7 @@ async function getAllCard(req, res) {//test
     }
 }
 
-async function getById(req, res) {//test
+async function getById(req, res) {
     
     try{
         let cardCollect = await cards.findOne({id: req.query.id});
@@ -29,9 +29,9 @@ async function getById(req, res) {//test
     }
 }
 
-async function getByType(req, res) {//test
+async function getByType(req, res) {
     try{
-        let cardCollect = await cards.find({type: req.type});//change to be accurate to req format
+        let cardCollect = await cards.find({type: req.query.type});
         return res.send(cardCollect);        
     } catch(err) {
         res.status(404).send({error: err});
