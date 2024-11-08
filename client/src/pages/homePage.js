@@ -1,9 +1,9 @@
-import SingleCardView from '../components/singleCardView';
-//import MultiCardView from '../components/multiCardView';
+//import SingleCardView from '../components/singleCardView';
+import MultiCardView from '../components/multiCardView';
 
 function homePage(){
     return (
-        <SingleCardView/>
+        < MultiCardView/>
     );
 }
 

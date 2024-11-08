@@ -8,9 +8,9 @@ function App() {
 
     const getAllCall = async () => {//return res data
         try{
-            let res = await axios.get('http://localhost:3001/getAll' //replace local host w/ actual site
-            )
+            let res = await axios.get('http://localhost:3001/getAll') //replace local host w/ actual site
 
+            return res.data;
         } catch(err){
             console.error(err);
       }
@@ -36,6 +36,8 @@ function App() {
                             type: cardData.type 
                     }
             })
+
+            
 
         } catch(err){
             console.error(err);

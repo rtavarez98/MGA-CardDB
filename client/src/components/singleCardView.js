@@ -17,7 +17,9 @@ function SingleCardView() {
 
     return (
         <div>
-            <button onClick={testFuncType}>Test Button</button>
+            <table>
+                
+            </table>
         </div>
     );
 }
