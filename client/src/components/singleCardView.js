@@ -1,25 +1,42 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import UserContext from './../UserContext';
 
-function SingleCardView() {
+function SingleCardView({singleCardId}) {
 
     const {getIdCall} = useContext(UserContext);
-    const {getTypeCall} = useContext(UserContext);
+    const [data, setData] = useState([]);
 
-    async function testFuncId() {//change or remove
-        //call /getId for id: 0
-        let res = await getIdCall({id: 0});
+    useEffect(() => {
+        if(singleCardId !== null) {
+            getCard(singleCardId);
+        }
+    },[singleCardId]);
+
+    async function getCard(cardId) {
+        await getIdCall({_id: cardId})
+        .then(data => setData(data));
     }
 
-    async function testFuncType() {//change or remove
-        let res = await getTypeCall({type: "equip"});
-    }
-
+    if(singleCardId !== null){
     return (
         <div>
             <table>
-                
+                <tr>
+                    <img alt="Card"/> 
+                    <td>
+                        <div>{data.name}</div>
+                        <div>{data.id}</div>
+                        <div>{data.type}</div>
+                        <div>{data.cost}</div>
+                        <p>{data.description}</p>
+                    </td>
+                </tr>
             </table>
+        </div>
+    );
+    }
+    else return (
+        <div>        
         </div>
     );
 }

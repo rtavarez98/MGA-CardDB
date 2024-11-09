@@ -6,7 +6,7 @@ import Home from './pages/homePage';
 
 function App() {
 
-    const getAllCall = async () => {//return res data
+    const getAllCall = async () => {
         try{
             let res = await axios.get('http://localhost:3001/getAll') //replace local host w/ actual site
 
@@ -16,20 +16,21 @@ function App() {
       }
     }
 
-    const getIdCall = async (cardData) => {//return res data
+    const getIdCall = async (cardData) => {
         try{
             let res = await axios.get('http://localhost:3001/getId', { //replace local host w/ actual site
                     params: {
-                            id: cardData.id 
+                            _id: cardData._id 
                     }
             })
-
+            
+            return res.data;
         } catch(err){
             console.error(err);
       }
     }
 
-    const getTypeCall = async (cardData) => {//return res data
+    const getTypeCall = async (cardData) => {
         try{
             let res = await axios.get('http://localhost:3001/getType', { //replace local host w/ actual site
                     params: {
@@ -37,8 +38,7 @@ function App() {
                     }
             })
 
-            
-
+            return res.data;
         } catch(err){
             console.error(err);
       }

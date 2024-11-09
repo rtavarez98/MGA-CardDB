@@ -1,10 +1,16 @@
-//import SingleCardView from '../components/singleCardView';
+import React, { useState } from 'react';
+import SingleCardView from '../components/singleCardView';
 import MultiCardView from '../components/multiCardView';
 
-function homePage(){
+function HomePage(){
+    const [cardId, setCardId] = useState(null);
+
     return (
-        < MultiCardView/>
+        <div>
+            <MultiCardView singleCardId={setCardId}/>
+            <SingleCardView singleCardId={cardId}/>
+        </div>
     );
 }
 
-export default homePage;
+export default HomePage;

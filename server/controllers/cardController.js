@@ -22,7 +22,7 @@ async function getAllCard(req, res) {
 async function getById(req, res) {
     
     try{
-        let cardCollect = await cards.findOne({id: req.query.id});
+        let cardCollect = await cards.findOne({_id: req.query._id});
         return res.send(cardCollect);
     } catch(err) {
         res.status(404).send({error: err});
