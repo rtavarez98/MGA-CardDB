@@ -16,9 +16,9 @@ function App() {
       }
     }
 
-    const getIdCall = async (cardData) => {
+    const getObIdCall = async (cardData) => {
         try{
-            let res = await axios.get('http://localhost:3001/getId', { //replace local host w/ actual site
+            let res = await axios.get('http://localhost:3001/getObId', { //replace local host w/ actual site
                     params: {
                             _id: cardData._id 
                     }
@@ -46,7 +46,7 @@ function App() {
 
     return (
       <BrowserRouter>
-          <UserContext.Provider value={{getAllCall, getIdCall, getTypeCall}}>
+          <UserContext.Provider value={{getAllCall, getObIdCall, getTypeCall}}>
               <Routes>
                   <Route path="/" element={<Home />}/>
               </Routes>

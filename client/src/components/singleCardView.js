@@ -1,23 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import UserContext from './../UserContext';
 
-function SingleCardView({singleCardId}) {
+function SingleCardView({singleCardObId}) {
 
-    const {getIdCall} = useContext(UserContext);
+    const {getObIdCall} = useContext(UserContext);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        if(singleCardId !== null) {
-            getCard(singleCardId);
+        if(singleCardObId !== null) {
+            getCard(singleCardObId);
         }
-    },[singleCardId]);
+    },[singleCardObId]);
 
-    async function getCard(cardId) {
-        await getIdCall({_id: cardId})
+    async function getCard(cardObId) {
+        await getObIdCall({_id: cardObId})
         .then(data => setData(data));
     }
 
-    if(singleCardId !== null){
+    if(singleCardObId !== null){
     return (
         <div>
             <table>
@@ -29,6 +29,10 @@ function SingleCardView({singleCardId}) {
                         <div>{data.type}</div>
                         <div>{data.cost}</div>
                         <p>{data.description}</p>
+                    </td>
+                    <td>
+                        <button>+</button>
+                        <button>-</button>
                     </td>
                 </tr>
             </table>

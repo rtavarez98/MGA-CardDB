@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import UserContext from './../UserContext';
 
-function MultiCardView({singleCardId}) {
+function MultiCardView({singleCardObId}) {
     
     const {getAllCall} = useContext(UserContext);
     const {getTypeCall} = useContext(UserContext);
@@ -16,8 +16,8 @@ function MultiCardView({singleCardId}) {
         let res = await getTypeCall({type: "equip"});
     }
 
-    async function sendCardId(id) {
-        singleCardId(id);
+    async function sendCardObId(obId) {
+        singleCardObId(obId);
     }
 
     useEffect(() => {
@@ -30,7 +30,7 @@ function MultiCardView({singleCardId}) {
                 <thead>
                 </thead>
                 {data.map((e, index) => (
-                    <tbody key={index} onClick={() => sendCardId(e._id)}>
+                    <tbody key={index} onClick={() => sendCardObId(e._id)}>
                         <td>{e.id}</td>
                         <td>{e.cost}</td>
                         <td>{e.name}</td>

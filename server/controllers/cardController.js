@@ -19,7 +19,7 @@ async function getAllCard(req, res) {
     }
 }
 
-async function getById(req, res) {
+async function getByObId(req, res) {
     
     try{
         let cardCollect = await cards.findOne({_id: req.query._id});
@@ -38,4 +38,4 @@ async function getByType(req, res) {
     }
 }
 
-module.exports = {getAllCard, getById, getByType};
+module.exports = {getAllCard, getByObId, getByType};
