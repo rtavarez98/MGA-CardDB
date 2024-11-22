@@ -5,13 +5,13 @@ import DeckBuilderView from '../components/deckBuilderView';
 
 function HomePage(){
     const [cardObId, setCardObId] = useState(null);
-    const [addId, setAddId] = useState(null);
+    const [cardId, setCardId] = useState(null);
 
     return (
         <div>
-            <DeckBuilderView/>
+            <DeckBuilderView singleCardId={cardId}/>
             <MultiCardView singleCardObId={setCardObId}/>
-            <SingleCardView singleCardObId={cardObId}/>
+            <SingleCardView singleCardObId={cardObId} singleCardId={setCardId}/>
         </div>
     );
 }
